@@ -1,14 +1,12 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 
 export (int) var speed = 200
 
 var velocity = Vector2()
 var target = Vector2()
+
+signal click_to_position_signal
 
 func _ready():
 	target = get_position()
@@ -35,10 +33,10 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed('click'):
 		target = get_global_mouse_position()
-		print(target)
-
-func _physics_process(delta):
-	velocity = (target - position).normalized() * speed
-	# rotation = velocity.angle()
-	if (target - position).length() > 5:
-		move_and_slide(velocity)
+		emit_signal("click_to_position_signal", position, self)
+#
+#func _physics_process(delta):
+#	velocity = (target - position).normalized() * speed
+#	# rotation = velocity.angle()
+#	if (target - position).length() > 5:
+#		move_and_slide(velocity)
