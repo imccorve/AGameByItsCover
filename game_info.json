@@ -1,0 +1,19 @@
+{
+    "customers":[
+        {"name": "Phil", "recipe": null, "time": null, "task":"The Special"},
+        {"name": "Amanda", "recipe": null, "time": null, "task":"Something Warm"},
+        {"name": "Beth", "recipe": null, "time": null, "task":"The Special"},
+        {"name": "Rico", "recipe": null, "time": null, "task":"The Special"},
+        {"name": "Teyona", "recipe": null, "time": null, "task":"The Special"}
+    ],
+    "levels": [
+        {"levelID": 0, "num_of_options": 3, "num_of_customers": 2},
+        {"levelID": 1, "num_of_options": 4, "num_of_customers": 2}
+    ],
+    "coffee_options":
+    {
+        "coffee": ["blue mountain", "dark", "mocha", "water", "kiliminjaro"],
+        "milk": ["none", "some","a little", "whole", "skim"],
+        "sugar": ["3 spoonfuls", "two spoonfuls", "one spoonful", "none"]
+    }
+}

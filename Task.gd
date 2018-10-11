@@ -1,5 +1,6 @@
 extends Node
 
+var customer
 var task_name
 var time
 var recipe = {}
@@ -23,10 +24,11 @@ func _ready():
 	curr_status = status.unactive
 	pass
 
-func init(tsk_name, tm, recipe):
-	task_name = tsk_name
-	time = tm
-	recipe = recipe
+func init(rcp, cust):
+	task_name = cust.task
+	time = 5
+	recipe = rcp
+	customer = cust
 	setup_gui()
 
 func setup_gui():
@@ -48,7 +50,10 @@ func _physics_process(delta):
 	if timer.time_left <= 0:
 		pass
 
-
+func getIngredient(ingredient):
+	print(ingredient)
+	print("Recipe",recipe)
+	return recipe[ingredient]
 
 func _on_Timer_timeout():
 	emit_signal("timeout_task",self)

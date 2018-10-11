@@ -21,7 +21,8 @@ func get_options():
 	return barista_area.get_children()
 #	options.append(barista_area.get_child(2))
 #	return options
-	
+func getRegister():
+	return $Register
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

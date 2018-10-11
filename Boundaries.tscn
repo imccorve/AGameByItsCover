@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7, 10 )
+
+[node name="Boundaries" type="Node"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( 82, 418 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+
+position = Vector2( 232, -50 )
+scale = Vector2( 38.2, 2.61538 )
+shape = SubResource( 1 )
+disabled = true
+
+

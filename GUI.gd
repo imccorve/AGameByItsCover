@@ -5,10 +5,26 @@ extends Control
 # var b = "textvar"
 var task1
 var timer1
+var popup_options
+
+var curr_popup
+
+signal done_selecting
+
+var coffee_options = ['blue Mountain', 'kiliminjaro', 'dark', 'mocha']
+var milk_options = ['none', 'some', 'a little', 'whole']
+var sugar_options = ['3 spoonfuls', 'two spoonfuls', 'none']
 
 func _ready():
+	popup_options = get_node("PopupMenu")
+	popup_options.connect("index_pressed", self, "_popupMenuChoice")
+
 	pass
 
+func updateScore(score):
+	print("gjkvhgvkh",score)
+	get_node("TopGUI/VBoxColumn2/Score").set_text(score)
+	
 func addTasks(task):
 #
 #	var label = Label.new()
@@ -23,7 +39,31 @@ func addTasks(task):
 #	timer1 = timer
 	get_node("TopGUI/Tasks").add_child(task)
 	pass
-	
+
+func setOptions(pos, coffee_step):
+	popup_options.clear()
+	popup_options.show()
+	curr_popup = coffee_step
+	var option_arr = []
+	if coffee_step == 'Coffee':
+		option_arr = coffee_options
+	if coffee_step == 'Milk':
+		option_arr = milk_options
+	if coffee_step == 'Sugar':
+		option_arr = sugar_options
+	for op in option_arr:
+		popup_options.add_item(op)
+
+func _popupMenuChoice(ID):
+#	popup_options.hide()
+	if ID == 1:
+		print("one")
+	if ID == 2:
+		print("2")
+	print(ID)
+	emit_signal("done_selecting", popup_options.get_item_text(ID), curr_popup)
+	popup_options.hide()
+
 func _process(delta):
 	
 	pass

@@ -12,7 +12,7 @@ vertices = PoolVector2Array( 512.1, 149.5, 529.6, 147, 533.6, 335, 518.6, 310, 3
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ), PoolIntArray( 6, 5, 4, 7, 8 ), PoolIntArray( 8, 7, 9 ) ]
 outlines = [ PoolVector2Array( 512.1, 149.5, 529.6, 147, 533.6, 335, 317.2, 337, 177.2, 339.5, 70.6, 342, 70.2, 318, 228.7, 315.5, 385.2, 314.5, 518.6, 310 ) ]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
