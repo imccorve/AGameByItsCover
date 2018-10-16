@@ -11,12 +11,22 @@ config_version=3
 [application]
 
 config/name="AGBIC"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Main/Game.tscn"
+run/disable_stdout=true
 config/icon="res://icon.png"
 
 [autoload]
 
-TaskCreator="*res://TaskCreator.gd"
+OrderGenerator="*res://customer/OrderGenerator.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=900
+window/size/test_height=500
+window/stretch/mode="viewport"
+window/stretch/shrink="1"
 
 [input]
 
@@ -26,3 +36,4 @@ click=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_n
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=true

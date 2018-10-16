@@ -1,0 +1,239 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://coffee_scene/WorldController.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/agbic mockup files_placeholder_bg.png" type="Texture" id=2]
+[ext_resource path="res://coffee_scene/Register.gd" type="Script" id=3]
+[ext_resource path="res://common_assets/icon.png" type="Texture" id=4]
+[ext_resource path="res://coffee_scene/Coffee.gd" type="Script" id=5]
+[ext_resource path="res://coffee_scene/Suagr.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Area2D
+
+signal selected
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func get_position_node():
+	return $Position2D.global_position
+
+# Had to click Ignore Mouse in Control
+
+func _on_Coffee_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		emit_signal(\"selected\", self)
+"
+
+[node name="WorldController" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="BG" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Register" type="Area2D" parent="." index="1" groups=[
+"destination",
+]]
+
+position = Vector2( 1365.85, 625.964 )
+scale = Vector2( 2.40609, 2.07133 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Register" index="0"]
+
+position = Vector2( -0.0629396, -0.381918 )
+scale = Vector2( 3.03304, 3.10303 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="Register" index="1"]
+
+position = Vector2( 4.13756, -43.0821 )
+scale = Vector2( 0.415612, 0.482782 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Register" index="2"]
+
+position = Vector2( 0.312119, 0.320107 )
+scale = Vector2( 0.495123, 0.482782 )
+texture = ExtResource( 4 )
+
+[node name="PickupArea" type="Area2D" parent="." index="2" groups=[
+"destination",
+]]
+
+position = Vector2( 573.359, 634.438 )
+scale = Vector2( 2.40609, 2.07133 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" index="0"]
+
+position = Vector2( -0.0629396, -0.381918 )
+scale = Vector2( 3.03304, 3.10303 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="PickupArea" index="1"]
+
+position = Vector2( 4.13756, -43.0821 )
+scale = Vector2( 0.415612, 0.482782 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="PickupArea" index="2"]
+
+position = Vector2( 0.312119, 0.320107 )
+scale = Vector2( 0.495123, 0.482782 )
+texture = ExtResource( 4 )
+
+[node name="BaristaArea" type="Node2D" parent="." index="3"]
+
+position = Vector2( 958.957, 418.251 )
+scale = Vector2( 8.00002, 1 )
+
+[node name="Coffee" type="Area2D" parent="BaristaArea" index="0" groups=[
+"option",
+"destination",
+]]
+
+position = Vector2( -22.8063, 2.015 )
+scale = Vector2( 0.386773, 2.07133 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaristaArea/Coffee" index="0"]
+
+position = Vector2( -0.0629396, -0.381918 )
+scale = Vector2( 3.03304, 3.10303 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="BaristaArea/Coffee" index="1"]
+
+position = Vector2( -0.765247, 35.195 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="BaristaArea/Coffee" index="2"]
+
+position = Vector2( 0.312119, 0.320107 )
+scale = Vector2( 0.495123, 0.482782 )
+texture = ExtResource( 4 )
+
+[node name="Milk" type="Area2D" parent="BaristaArea" index="1" groups=[
+"option",
+"destination",
+]]
+
+position = Vector2( -0.420567, 2.015 )
+scale = Vector2( 0.386773, 2.07133 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = SubResource( 2 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaristaArea/Milk" index="0"]
+
+position = Vector2( -0.0629396, -0.381918 )
+scale = Vector2( 3.03304, 3.10303 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="BaristaArea/Milk" index="1"]
+
+position = Vector2( -0.593956, 34.165 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="BaristaArea/Milk" index="2"]
+
+position = Vector2( 0.312119, 0.320107 )
+scale = Vector2( 0.495123, 0.482782 )
+texture = ExtResource( 4 )
+
+[node name="Sugar" type="Area2D" parent="BaristaArea" index="2" groups=[
+"option",
+"destination",
+]]
+
+position = Vector2( 23.0414, 0.67598 )
+scale = Vector2( 0.386773, 2.07133 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaristaArea/Sugar" index="0"]
+
+position = Vector2( -0.0629396, -0.381918 )
+scale = Vector2( 3.03304, 3.10303 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="BaristaArea/Sugar" index="1"]
+
+position = Vector2( 0.745407, 34.7403 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="BaristaArea/Sugar" index="2"]
+
+position = Vector2( 0.312119, 0.320107 )
+scale = Vector2( 0.495123, 0.482782 )
+texture = ExtResource( 4 )
+
+[connection signal="input_event" from="Register" to="Register" method="_on_Register_input_event"]
+
+[connection signal="input_event" from="PickupArea" to="PickupArea" method="_on_Register_input_event"]
+
+[connection signal="input_event" from="BaristaArea/Coffee" to="BaristaArea/Coffee" method="_on_Coffee_input_event"]
+
+[connection signal="input_event" from="BaristaArea/Milk" to="BaristaArea/Milk" method="_on_Coffee_input_event"]
+
+[connection signal="input_event" from="BaristaArea/Sugar" to="BaristaArea/Sugar" method="_on_Sugar_input_event"]
+
+

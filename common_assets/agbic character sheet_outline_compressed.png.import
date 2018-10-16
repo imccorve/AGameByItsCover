@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/agbic character sheet_outline_compressed.png-29da7894d030aeb97cbae5681cefc300.stex"
+
+[deps]
+
+source_file="res://common_assets/agbic character sheet_outline_compressed.png"
+source_md5="4ad8104f93e962be1627b187709e1f81"
+
+dest_files=[ "res://.import/agbic character sheet_outline_compressed.png-29da7894d030aeb97cbae5681cefc300.stex" ]
+dest_md5="5a613891e6a567a601c10b2a7cdfb08d"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

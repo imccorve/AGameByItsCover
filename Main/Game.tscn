@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main/Game_cp.gd" type="Script" id=1]
+[ext_resource path="res://coffee_scene/WorldController.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Navigation2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main/CustomerInstantiator.gd" type="Script" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=6]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812, 1429.54, 561.781, 1427.78, 304.791, 1265.84, 304.791 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ) ]
+outlines = [ PoolVector2Array( 1265.84, 304.791, 1427.78, 304.791, 1429.54, 561.781, 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812 ) ]
+
+[node name="Game" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="WorldController" parent="." index="0" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+
+[node name="Register" parent="WorldController" index="1"]
+
+position = Vector2( 1365.85, 627.724 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="Navigation2D" parent="." index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="CustomerInstantiator" type="Node" parent="." index="2"]
+
+script = ExtResource( 4 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 1350.82, 361.23 )
+
+[node name="Eyes" parent="Player/SpriteBody" index="0"]
+
+frame = 4
+
+[node name="GUI" parent="." index="4" instance=ExtResource( 6 )]
+
+mouse_filter = 2
+_sections_unfolded = [ "Mouse" ]
+
+
+[editable path="WorldController"]
+[editable path="Navigation2D"]
+[editable path="Player"]

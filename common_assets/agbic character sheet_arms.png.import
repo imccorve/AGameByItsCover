@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/agbic character sheet_arms.png-d3371a5e1280814be506c907dbd82ee9.stex"
+
+[deps]
+
+source_file="res://common_assets/agbic character sheet_arms.png"
+source_md5="09222e003e4cfc70b82b3cef4c37cc94"
+
+dest_files=[ "res://.import/agbic character sheet_arms.png-d3371a5e1280814be506c907dbd82ee9.stex" ]
+dest_md5="6d1e085ac7e9de9c3faa45246852a4ed"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
