@@ -1,4 +1,6 @@
-extends Control
+extends Node
+
+
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -9,8 +11,3 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://Main/Game.tscn")
-	pass # replace with function body

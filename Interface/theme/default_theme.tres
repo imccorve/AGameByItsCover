@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[ext_resource path="res://common_assets/sik_fonts/Decolue.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[resource]
+
+default_font = SubResource( 1 )
+PopupMenu/colors/font_color = Color( 0.799521, 0.917969, 0.823581, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.273973, 0.871094, 0.325288, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/panel = null
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+_sections_unfolded = [ "Extra Spacing", "Font", "PopupMenu", "PopupMenu/colors", "PopupMenu/constants", "PopupMenu/fonts", "PopupMenu/icons", "PopupMenu/styles", "Settings" ]
+

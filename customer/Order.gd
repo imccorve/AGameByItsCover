@@ -42,8 +42,8 @@ func setup_gui():
 	
 func set_name(order_name):
 	self.order_name = order_name
-	get_node("HBoxContainer/OrderName").set_text(order_name)
-	get_node("HBoxContainer/OrderName").add_color_override("font_color", Color(1,0,0))
+	get_node("HBoxContainer/Control/OrderName").set_text(order_name)
+#	get_node("HBoxContainer/OrderName").add_color_override("font_color", Color(1,0,0))
 	
 func get_name():
 	return order_name

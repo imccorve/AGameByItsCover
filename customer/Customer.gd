@@ -7,6 +7,7 @@ var customer_order
 var customer_name
 var customer_sprite
 
+var speed = 200
 
 
 func _ready():
@@ -20,7 +21,7 @@ func setup():
 	customer_info_json = OrderGenerator.randCustomer()
 	customer_name = customer_info_json["name"]
 	pass
-	
+
 func createOrder():
 	var new_order = order.instance()
 	new_order.init(OrderGenerator.generateRecipe(), customer_name)

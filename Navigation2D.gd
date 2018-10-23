@@ -45,6 +45,6 @@ func move_along_path(distance):
 		print("LastPoint ",last_point)
 		path.remove(0)
 	if path.size() == 0:
-		emit_signal("done_moving")
+		emit_signal("done_moving",player)
 		set_process(false)
 		

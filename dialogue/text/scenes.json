@@ -1,0 +1,41 @@
+{
+    "created_at": "2018-10-20T21:04:16Z",
+    "data": {
+        "editorData": {
+            "textSize": 0,
+            "authorName": "Anonymous",
+            "playPoint": "imJustGoingToGet",
+            "libraryVisible": false
+        },
+        "optionMirroring": true,
+        "initial": "ohGodPmIsAlmostH",
+        "allowCheckpoints": false,
+        "stitches": {
+            "sigh": {
+                "content": ["Sigh.", {
+                    "divert": "imJustGoingToGet"
+                }]
+            },
+            "ohGodPmIsAlmostH": {
+                "content": ["Oh god, 12pm is almost here. Ugh, I want to die.", {
+                    "divert": "knockKnockKnock"
+                }, {
+                    "pageNum": 1
+                }]
+            },
+            "imJustGoingToGet": {
+                "content": ["I'm just going to get out there, and just try my best.",
+                    {"isEnd": 1
+                }]
+            },
+            "knockKnockKnock": {
+                "content": ["*knock, knock, knock*", {
+                    "divert": "sigh"
+                }]
+            }
+        }
+    },
+    "updated_at": "2018-10-20T21:06:25Z",
+    "url_key": "c66d",
+    "title": "Scene_Introduction"
+}

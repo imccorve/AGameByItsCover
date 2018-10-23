@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/ghosty_sprite_placeholder.png" type="Texture" id=2]
-[ext_resource path="res://common_assets/agbic character sheet_eyes_open.png" type="Texture" id=3]
-[ext_resource path="res://common_assets/agbic character sheet_eyes_slightly.png" type="Texture" id=4]
-[ext_resource path="res://common_assets/agbic character sheet_closed.png" type="Texture" id=5]
-[ext_resource path="res://common_assets/agbic character sheet_outline_compressed.png" type="Texture" id=6]
-[ext_resource path="res://common_assets/agbic character sheet_arms.png" type="Texture" id=7]
-[ext_resource path="res://common_assets/agbic_apron_sprite.png" type="Texture" id=8]
+[ext_resource path="res://Player/SpriteBody.gd" type="Script" id=3]
+[ext_resource path="res://common_assets/agbic character sheet_eyes_open.png" type="Texture" id=4]
+[ext_resource path="res://common_assets/agbic character sheet_eyes_slightly.png" type="Texture" id=5]
+[ext_resource path="res://common_assets/agbic character sheet_closed.png" type="Texture" id=6]
+[ext_resource path="res://common_assets/agbic character sheet_outline_compressed.png" type="Texture" id=7]
+[ext_resource path="res://common_assets/agbic character sheet_arms.png" type="Texture" id=8]
+[ext_resource path="res://common_assets/agbic_apron_sprite.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -79,7 +80,7 @@ tracks/0/keys = {
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -99,7 +100,9 @@ speed = 300
 [node name="Placeholder" type="Sprite" parent="." index="0"]
 
 visible = false
+modulate = Color( 0.839844, 0.839844, 0.839844, 1 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -122,28 +125,29 @@ _sections_unfolded = [ "Playback Options" ]
 [node name="SpriteBody" type="Node2D" parent="." index="3"]
 
 position = Vector2( 0, -5.26579 )
-_sections_unfolded = [ "Transform" ]
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Eyes" type="AnimatedSprite" parent="SpriteBody" index="0"]
 
 frames = SubResource( 2 )
 animation = "default"
-frame = 10
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Body" type="Sprite" parent="SpriteBody" index="1"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Arms" type="Sprite" parent="SpriteBody" index="2"]
 
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Apron" type="Sprite" parent="SpriteBody" index="3"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Visibility" ]
 
 

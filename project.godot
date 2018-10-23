@@ -11,8 +11,7 @@ config_version=3
 [application]
 
 config/name="AGBIC"
-run/main_scene="res://Main/Game.tscn"
-run/disable_stdout=true
+run/main_scene="res://gui/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -23,8 +22,8 @@ OrderGenerator="*res://customer/OrderGenerator.gd"
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=900
-window/size/test_height=500
+window/size/test_width=960
+window/size/test_height=540
 window/stretch/mode="viewport"
 window/stretch/shrink="1"
 

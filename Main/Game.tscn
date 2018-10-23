@@ -1,17 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main/Game_cp.gd" type="Script" id=1]
 [ext_resource path="res://coffee_scene/WorldController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Navigation2D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Main/CustomerInstantiator.gd" type="Script" id=4]
+[ext_resource path="res://customer/CustomerInstantiator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=7]
+[ext_resource path="res://dialogue/Dialogue.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Interface/shaders/transition/transition_effect.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Main/CutSceneManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Main/PositionsForCustomers.gd" type="Script" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812, 1429.54, 561.781, 1427.78, 304.791, 1265.84, 304.791 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ) ]
-outlines = [ PoolVector2Array( 1265.84, 304.791, 1427.78, 304.791, 1429.54, 561.781, 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812 ) ]
+vertices = PoolVector2Array( 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812, 636.516, 566.223, 1429.54, 561.781, 1427.78, 304.791, 1265.84, 304.791, 541.572, 578.763, 670.553, 566.223, 670.553, 736.406, 550.529, 1150.22, 684.884, 1150.22, 679.51, 838.516, 1442.65, 743.572, 1329.79, 833.142, 1455.19, 1143.06, 1336.96, 1144.85 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2 ), PoolIntArray( 5, 4, 2, 6 ), PoolIntArray( 7, 8, 9, 10 ), PoolIntArray( 11, 10, 9, 12 ), PoolIntArray( 12, 9, 13, 14 ), PoolIntArray( 14, 13, 15, 16 ) ]
+outlines = [ PoolVector2Array( 1265.84, 304.791, 1427.78, 304.791, 1429.54, 561.781, 636.516, 566.223, 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812 ), PoolVector2Array( 541.572, 578.763, 550.529, 1150.22, 684.884, 1150.22, 679.51, 838.516, 1329.79, 833.142, 1336.96, 1144.85, 1455.19, 1143.06, 1442.65, 743.572, 670.553, 736.406, 670.553, 566.223 ) ]
 
 [node name="Game" type="Node"]
 
@@ -26,34 +31,143 @@ editor/display_folded = true
 position = Vector2( 1365.85, 627.724 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 
-[node name="Navigation2D" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Sprite" parent="WorldController/Register" index="2"]
 
-editor/display_folded = true
+visible = false
+
+[node name="Sprite" parent="WorldController/PickupArea" index="2"]
+
+visible = false
+
+[node name="Sprite" parent="WorldController/BaristaArea/Coffee" index="2"]
+
+visible = false
+
+[node name="Sprite" parent="WorldController/BaristaArea/Milk" index="2"]
+
+visible = false
+
+[node name="Sprite" parent="WorldController/BaristaArea/Sugar" index="2"]
+
+visible = false
+
+[node name="Navigation2D" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
 navpoly = SubResource( 1 )
 enabled = true
 
-[node name="CustomerInstantiator" type="Node" parent="." index="2"]
+[node name="CustomerInstantiator" parent="." index="2" instance=ExtResource( 4 )]
 
-script = ExtResource( 4 )
-
-[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="3" groups=[
+"player",
+] instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( 1350.82, 361.23 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Eyes" parent="Player/SpriteBody" index="0"]
 
-frame = 4
+frame = 3
 
 [node name="GUI" parent="." index="4" instance=ExtResource( 6 )]
 
 mouse_filter = 2
-_sections_unfolded = [ "Mouse" ]
+theme = ExtResource( 7 )
+_sections_unfolded = [ "Mouse", "Theme" ]
+
+[node name="CustPosition" type="Position2D" parent="." index="5"]
+
+position = Vector2( 1385.97, 1039.22 )
+
+[node name="Dialogue" parent="." index="6" instance=ExtResource( 8 )]
+
+visible = false
+
+[node name="Button" type="Button" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 834.0
+margin_top = 134.0
+margin_right = 1017.0
+margin_bottom = 209.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+
+[node name="transition_effect" parent="." index="8" instance=ExtResource( 9 )]
+
+visible = false
+
+[node name="CutSceneManager" parent="." index="9" instance=ExtResource( 10 )]
+
+[node name="Start" parent="CutSceneManager" index="0"]
+
+position = Vector2( 598.329, 528.464 )
+
+[node name="End" parent="CutSceneManager" index="1"]
+
+position = Vector2( 1270.11, 519.507 )
+
+[node name="PositionsForCustomers" type="Node" parent="." index="10"]
+
+script = ExtResource( 11 )
+
+[node name="Lineup" type="Node" parent="PositionsForCustomers" index="0"]
+
+[node name="Destination1" type="Position2D" parent="PositionsForCustomers/Lineup" index="0"]
+
+position = Vector2( 1378.81, 759.763 )
+
+[node name="Destination2" type="Position2D" parent="PositionsForCustomers/Lineup" index="1"]
+
+position = Vector2( 1382.39, 818.879 )
+
+[node name="Destination3" type="Position2D" parent="PositionsForCustomers/Lineup" index="2"]
+
+position = Vector2( 1384.18, 881.578 )
+
+[node name="Destination4" type="Position2D" parent="PositionsForCustomers/Lineup" index="3"]
+
+position = Vector2( 1387.76, 938.904 )
+
+[node name="Checkout" type="Node" parent="PositionsForCustomers" index="1"]
+
+[node name="DestinationCO1" type="Position2D" parent="PositionsForCustomers/Checkout" index="0"]
+
+position = Vector2( 607.286, 782.844 )
+
+[node name="DestinationCO2" type="Position2D" parent="PositionsForCustomers/Checkout" index="1"]
+
+position = Vector2( 718.354, 777.47 )
+
+[node name="DestinationCO3" type="Position2D" parent="PositionsForCustomers/Checkout" index="2"]
+
+position = Vector2( 623.409, 892.12 )
+
+[node name="DestinationCO4" type="Position2D" parent="PositionsForCustomers/Checkout" index="3"]
+
+position = Vector2( 822.255, 786.427 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 
 [editable path="WorldController"]
 [editable path="Navigation2D"]
 [editable path="Player"]
+[editable path="CutSceneManager"]

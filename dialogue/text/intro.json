@@ -1,0 +1,73 @@
+{
+    "created_at": "2018-05-18T14:23:51Z",
+    "updated_at": "2018-05-19T02:58:16Z",
+    "title": "Sample_story",
+    "data": {
+        "optionMirroring": true,
+        "editorData": {
+            "textSize": 0,
+            "playPoint": "whetherYouFeelAp",
+            "authorName": "Anonymous",
+            "libraryVisible": true
+        },
+        "initial": "iAmSpeakingToYou",
+        "stitches": {
+            "wowOkayOkayAlrea": {
+                "content": ["Wow! Okay , okay already. Are you sure you don't need anything?", {
+                    "ifConditions": null,
+                    "option": "...",
+                    "notIfConditions": null,
+                    "linkPath": "noNeedToGiveMeTh"
+                }, {
+                    "ifConditions": null,
+                    "option": "Yes, I'm sure",
+                    "notIfConditions": null,
+                    "linkPath": "wellOkay"
+                }]
+            },
+            "justOkayHmmISee": {
+                "content": ["Just okay. Hmm... I see.", {
+                    "divert": "wellImComingInAn"
+                }, {
+                    "flagName": "apathetic"
+                }]
+            },
+            "noNeedToGiveMeTh": {
+                "content": ["No need to give me the silent treatment", {
+                    "divert": "wellImComingInAn"
+                }]
+            },
+            "wellImComingInAn": {
+                "content": ["Well I'm coming in anyways", {
+                    "divert": "whetherYouFeelAp"
+                }]
+            },
+            "iAmSpeakingToYou": {
+                "content": ["I am speaking to you from beyond the grave. How are you?", {
+                    "ifConditions": null,
+                    "option": "Eh, I'm okay",
+                    "notIfConditions": null,
+                    "linkPath": "justOkayHmmISee"
+                }, {
+                    "ifConditions": null,
+                    "option": "Leave me alone",
+                    "notIfConditions": null,
+                    "linkPath": "wowOkayOkayAlrea"
+                }]
+            },
+            "whetherYouFeelAp": {
+                "content": ["Whether you feel apathetic or not!", {
+                    "ifCondition": "apathetic",
+                    "isEnd": 1
+                }]
+            },
+            "wellOkay": {
+                "content": ["...Well okay.", {
+                    "divert": "wellImComingInAn"
+                }]
+            }
+        },
+        "allowCheckpoints": false
+    },
+    "url_key": "dfzj"
+}

@@ -7,6 +7,7 @@ var gui
 var world
 var nav
 var custo_init
+var positonsCustomers
 
 var curr_order
 var ingredients_chosen = {'sugar':null, 'milk':null,'coffee':null}
@@ -27,10 +28,13 @@ func _ready():
 	nav = get_node("Navigation2D")
 	world = get_node("WorldController")
 	custo_init = get_node("CustomerInstantiator")
+	positonsCustomers = get_node("PositionsForCustomers")
+
 	setup_connections()
 	for i in range(0,2):
 		addCustomers()
-	pass
+		
+	get_node("transition_effect").play(true)
 
 func setup_connections():
 	world.connect("button_selected", self, "buttonAction")
@@ -38,8 +42,15 @@ func setup_connections():
 	gui.connect("done_selecting", self, "enterOption")
 	
 func addCustomers():
-	var new_customer = custo_init.createCustomer()
+	var pos = get_node("CustPosition").position
+	var new_customer = custo_init.createCustomer(pos)
+	
 	waiting_customers.append(new_customer)
+	add_child(new_customer)
+	
+	var reg_pos = positonsCustomers.nextRegPos()
+	print("reggs_pos ", reg_pos)
+	nav.movePlayer(reg_pos, new_customer)
 	new_customer.print_info()
 	
 	
@@ -79,7 +90,8 @@ func takeCustomer(): # or take all the waiting customers
 		print ("No current node")
 
 
-func showGUI():
+func showGUI(character_moved):
+	print("Character moved ", character_moved)
 	print("<<< Player pos after move ",player.position)
 	if isSelecting:
 		gui.showPopup()
@@ -91,7 +103,8 @@ func showGUI():
 			pass
 		else:
 			print("taking customer in showgui")
-			takeCustomer()
+			if character_moved.is_in_group("player"):
+				takeCustomer()
 		# show customer take text and take customer method
 		pass
 
@@ -100,11 +113,6 @@ func enterOption(option_chosen, ingredient):
 	canMove = true
 	print("Option chosen", option_chosen, ingredient)
 	ingredients_chosen[ingredient.to_lower()] = option_chosen
-#	isSelecting = false
-#	if isAllChosen():
-#		print("done")
-#		print(ingredients_chosen)
-#		checkResult()
 
 func checkResult():
 	print("Checking ingredients in result ", curr_order)
@@ -127,3 +135,16 @@ func removeCustomer():
 #func _process(delta):
 #	print(get_local_mouse_position())
 #	pass
+
+func disableInput():
+	for node in get_tree().get_nodes_in_group("destination"):
+		node.disable()
+	pass
+func enableInput():
+	for node in get_tree().get_nodes_in_group("destination"):
+		node.enable()
+		
+func _on_Button_pressed():
+	get_node("transition_effect").play(true)
+#	get_node("Dialogue").start_dialogue()
+	pass # replace with function body
