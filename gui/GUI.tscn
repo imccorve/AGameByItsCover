@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://gui/GUI.gd" type="Script" id=1]
-[ext_resource path="res://common_assets/sik_fonts/Decolue.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/GUI.gd" type="Script" id=2]
+[ext_resource path="res://common_assets/sik_fonts/Decolue.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="GUI" type="Control"]
@@ -23,7 +24,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
 
 [node name="TopGUI" type="Control" parent="." index="0"]
 
@@ -58,16 +61,35 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect" ]
 
-[node name="VBoxColumn2" type="VBoxContainer" parent="TopGUI" index="1"]
+[node name="Panel" type="Panel" parent="TopGUI" index="1"]
 
-visible = false
+modulate = Color( 0.169271, 0.19519, 0.203125, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 132.0
-margin_right = 217.0
-margin_bottom = 86.0
+margin_left = 592.0
+margin_top = 72.0
+margin_right = 833.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="VBoxColumn2" type="VBoxContainer" parent="TopGUI" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 642.0
+margin_top = 101.0
+margin_right = 727.0
+margin_bottom = 187.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -76,8 +98,94 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="TimeElapsedText" type="Label" parent="TopGUI/VBoxColumn2" index="0"]
+[node name="Ingredients" type="Label" parent="TopGUI/VBoxColumn2" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 133.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Ingredients"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="milk" type="Label" parent="TopGUI/VBoxColumn2" index="1" groups=[
+"ingredient_label",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 133.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Milk"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="coffee" type="Label" parent="TopGUI/VBoxColumn2" index="2" groups=[
+"ingredient_label",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 84.0
+margin_right = 133.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Coffee"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sugar" type="Label" parent="TopGUI/VBoxColumn2" index="3" groups=[
+"ingredient_label",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 126.0
+margin_right = 133.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Sugar"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TimeElapsedText" type="Label" parent="TopGUI/VBoxColumn2" index="4"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -95,15 +203,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Score" type="Label" parent="TopGUI/VBoxColumn2" index="1"]
+[node name="Score" type="Label" parent="TopGUI/VBoxColumn2" index="5"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
 margin_right = 85.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -114,6 +222,29 @@ text = "Score is..."
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="OrderLabel" type="Label" parent="TopGUI" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 178.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Orders"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="AlertContainer" type="Control" parent="." index="1"]
 

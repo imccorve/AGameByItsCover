@@ -1,9 +1,9 @@
 {
     "customers":[
-        {"name": "Phil", "recipe": null, "time": null, "task":"The Special"},
-        {"name": "Amanda", "recipe": null, "time": null, "task":"Something Warm"},
-        {"name": "Beth", "recipe": null, "time": null, "task":"The Special"},
-        {"name": "Rico", "recipe": null, "time": null, "task":"The Special"},
+        {"name": "Phil", "recipe": null, "time": null, "task":"The Expressoxist"},
+        {"name": "Amanda", "recipe": null, "time": null, "task":"Americano in London"},
+        {"name": "Beth", "recipe": null, "time": null, "task":"The Mocha Returns"},
+        {"name": "Rico", "recipe": null, "time": null, "task":"Lattexas chainsaw Massacre"},
         {"name": "Teyona", "recipe": null, "time": null, "task":"The Special"}
     ],
     "levels": [

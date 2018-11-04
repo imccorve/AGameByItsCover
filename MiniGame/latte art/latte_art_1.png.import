@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/latte_art_1.png-65a487996fd071e46e966e5839b49181.stex"
+
+[deps]
+
+source_file="res://MiniGame/latte art/latte_art_1.png"
+source_md5="3a8bd332e1cf01f8c985304e79140b5f"
+
+dest_files=[ "res://.import/latte_art_1.png-65a487996fd071e46e966e5839b49181.stex" ]
+dest_md5="379f74868c3b09ace03bc121394c01e7"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

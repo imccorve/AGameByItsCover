@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sirldrende vann1.wav-7b1e96cdb3eab980f5e7cfdd8e1d0ef9.sample"
+
+[deps]
+
+source_file="res://audio/sirldrende vann1.wav"
+source_md5="b54110e1bdc22406ff9289dc38c84bf8"
+
+dest_files=[ "res://.import/sirldrende vann1.wav-7b1e96cdb3eab980f5e7cfdd8e1d0ef9.sample" ]
+dest_md5="4c9af8ed0f2ebe815ec99c3fbfbfd227"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Buy Something!.ogg-c9abc1e717f39152d4e7cd5d37b49450.oggstr"
+
+[deps]
+
+source_file="res://audio/Buy Something!.ogg"
+source_md5="8f19710bd32c08a69d3a84af0de77c43"
+
+dest_files=[ "res://.import/Buy Something!.ogg-c9abc1e717f39152d4e7cd5d37b49450.oggstr" ]
+dest_md5="bc326ec3c5fae27e48fbd408faaebc74"
+
+[params]
+
+loop=true
+loop_offset=0

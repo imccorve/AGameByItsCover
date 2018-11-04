@@ -4,9 +4,12 @@ var passages
 var data = {}
 var scriptPath
 var initial
+var dialogue_owner
 
-func _init(jsonPath):
+func _init(jsonPath, test):
 	scriptPath = jsonPath
+	dialogue_owner = test
+
 
 func parse():
 	print(scriptPath)
@@ -15,12 +18,18 @@ func parse():
 	print("Does file exist ", doFileExists)
 	data = load_json(scriptPath)
 
-	initial = data["data"].initial
-
-	var passage = {}
-	passage = data["data"]["stitches"][initial].content
-	passages = data["data"]["stitches"]
-
+	if dialogue_owner == null:
+		initial = data["data"].initial
+	
+		var passage = {}
+		passage = data["data"]["stitches"][initial].content
+		passages = data["data"]["stitches"]
+	else:
+		initial = data[dialogue_owner].initial
+	
+		var passage = {}
+		passage = data[dialogue_owner]["stitches"][initial].content
+		passages = data[dialogue_owner]["stitches"]
 
 func load_json(json_path):
 	var data = {}
@@ -78,7 +87,8 @@ func get_options(passageName):
 	return options
 #divert to next passage (for now)
 func has_next(currPassage):
-	if get_content(currPassage).size() < 1:
+	print(get_content(currPassage).size())
+	if get_content(currPassage).size() <= 1:
 		return false
 	elif get_content(currPassage)[1].has("divert"):
 		return true
@@ -101,10 +111,20 @@ func get_start_node():
 #	return data["startNode"]
 	print(data["data"].initial)
 	return data["data"].initial
+	
+func moreThanOne(currPassage):
+	if get_content(currPassage).size() > 1:
+		return true 
+	else:
+		return false
+
 func set_flag(passageName):
+
 	var last = get_content(passageName).size() - 1
+	print("LASTTT ", get_content(passageName)[last])
 	if get_content(passageName)[last].has("flagName"):
 		print("set flag")
+
 func check_flag_condition(passageName):
 	var last = get_content(passageName).size() - 1
 	if get_content(passageName)[last].has("ifCondition"):

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/agbic_minigame_cup copy.png-f2f4d7387a8bbe224fa544b21dec1cd1.stex"
+
+[deps]
+
+source_file="res://MiniGame/agbic_minigame_cup copy.png"
+source_md5="571a4961d110b3f2523f8fcd43ee545d"
+
+dest_files=[ "res://.import/agbic_minigame_cup copy.png-f2f4d7387a8bbe224fa544b21dec1cd1.stex" ]
+dest_md5="572db3a89df6dd0cda68e194d36c203f"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

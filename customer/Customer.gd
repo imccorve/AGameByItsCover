@@ -20,6 +20,7 @@ func setup():
 	# set order
 	customer_info_json = OrderGenerator.randCustomer()
 	customer_name = customer_info_json["name"]
+	setName()
 	pass
 
 func createOrder():
@@ -28,6 +29,11 @@ func createOrder():
 	new_order.set_name(customer_info_json["task"])
 	customer_order = new_order
 
+func setName():
+	if customer_name:
+		get_node("Name").text = customer_name
+	else:
+		print("name is null")
 func getName():
 	return customer_name
 

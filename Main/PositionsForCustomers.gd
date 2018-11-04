@@ -1,8 +1,5 @@
 extends Node
 
-var register_pos_array = []
-var checkout_pos_array = []
-
 var register_pos 
 var checkout_pos
 
@@ -17,6 +14,7 @@ func _ready():
 	pass
 
 func nextRegPos():
+	print(curr_r)
 	var res_pos = register_pos[curr_r]
 	curr_r += 1
 	return res_pos.position
@@ -30,4 +28,5 @@ func nextCOPos():
 func leaveCOPos():
 	curr_o -= 1
 
-
+func exit():
+	return get_node("Exit/Exit").position

@@ -5,13 +5,25 @@ export (int) var speed = 300
 
 var velocity = Vector2()
 var target = Vector2()
+var cup
 
 signal click_to_position_signal
 
+
 func _ready():
 	target = get_position()
+	cup = get_node("SpriteBody/CoffeCup")
+	hideCup()
 	pass
+
+func showCup():
+	cup.show()
 	
+func hideCup():
+	cup.hide()
+
+	
+
 #func get_input():
 #	velocity = Vector2()
 #	if Input.is_action_pressed('ui_right'):

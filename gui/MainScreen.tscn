@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://gui/MainScreen.gd" type="Script" id=1]
+[ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/MainScreen.gd" type="Script" id=2]
+[ext_resource path="res://gui/bg_mainscreen_cropped_image.png" type="Texture" id=3]
+[ext_resource path="res://Interface/Dynamic_Fotn_Coulettet.tres" type="DynamicFont" id=4]
 
 [node name="MainScreen" type="Control" index="0"]
 
@@ -14,7 +17,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
 
 [node name="Panel" type="Panel" parent="." index="0"]
 
@@ -29,7 +34,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="Control" parent="." index="1"]
+[node name="bg_mainscreen_cropped_image" type="Sprite" parent="." index="1"]
+
+position = Vector2( 960.092, 539.995 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="Control" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -52,9 +62,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -8.0
-margin_right = 510.0
-margin_bottom = 121.0
+margin_left = -227.0
+margin_top = -383.0
+margin_right = 758.0
+margin_bottom = -241.0
 rect_min_size = Vector2( 100, 100 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -71,20 +82,21 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 510.0
-margin_bottom = 14.0
+margin_right = 985.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "AGBIC"
+custom_fonts/font = ExtResource( 4 )
+text = "From Beyond the Grave Cafe"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_fonts" ]
 
 [node name="Subtitle" type="Label" parent="VBoxContainer/VBoxContainer" index="1"]
 
@@ -92,9 +104,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
-margin_right = 510.0
-margin_bottom = 32.0
+margin_top = 104.0
+margin_right = 985.0
+margin_bottom = 142.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -132,7 +144,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 510.0
-margin_bottom = 20.0
+margin_bottom = 44.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -144,19 +156,21 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "StartNewGame"
+text = "Start"
 flat = false
 align = 1
+_sections_unfolded = [ "Theme" ]
 
 [node name="Button2" type="Button" parent="VBoxContainer/Buttons" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 24.0
+margin_top = 48.0
 margin_right = 510.0
-margin_bottom = 44.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2

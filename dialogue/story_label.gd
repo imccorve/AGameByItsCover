@@ -13,11 +13,11 @@ var isChoosing = false
 
 signal finished
 
-func enter():
+func enter(textPathName, src):
 	var DialogueManager = get_parent().get_parent()
-	self.connect("finished", DialogueManager, "end_dialogue")
+	self.connect("finished", DialogueManager, "wait_for_end")
 	optionsPanel = get_parent().get_node("Options/ItemList")
-	script = TwineScript.new(scriptPath)
+	script = TwineScript.new("res://dialogue/text/" + textPathName, src)
 	script.parse()
 	currentPassage = script.get_start_node()
 
@@ -28,7 +28,7 @@ func enter():
 func _input(event):
 #	if(event.is_action_pressed("ui_accept") && !isChoosing):
 	if(event.is_action_pressed("click") && !isChoosing):
-		print("pressing and not choosing ", currentPassage, script.is_end(currentPassage))
+#		print("pressing and not choosing ", currentPassage, script.is_end(currentPassage))
 		if script.has_next(currentPassage):
 			currentPassage = script.get_next(currentPassage)
 			show_paragraph(currentPassage)
@@ -62,15 +62,19 @@ func show_paragraph(currPassage):
 		passage = script.get_passage(currPassage)
 	else:
 		print("it's not there")
-		
+	
 	# set flag and check flag
-	script.set_flag(currPassage)
-	var condition_cleared = script.check_flag_condition(currPassage)
+	if script.moreThanOne(currPassage):
+		script.set_flag(currPassage)
+		var condition_cleared = script.check_flag_condition(currPassage)
+		isChoosing = script.has_options(currPassage)
+	else:
+		isChoosing = false
 	set_bbcode(passage.content[0])
 	
 
 	# potentially show options 
-	isChoosing = script.has_options(currPassage)
+
 	print("isChoosing variable ", isChoosing)
 	if(isChoosing):
 		# show options on optionspanel and don't move to next until chosen
@@ -84,9 +88,10 @@ func show_paragraph(currPassage):
 		pass
 
 func exit():
-	emit_signal("finished")
 	set_process_input(false)
 	print("done")
+	emit_signal("finished")
+
 
 
 func _on_story_meta_clicked(meta):

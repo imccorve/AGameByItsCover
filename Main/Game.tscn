@@ -6,17 +6,17 @@
 [ext_resource path="res://customer/CustomerInstantiator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=7]
-[ext_resource path="res://dialogue/Dialogue.tscn" type="PackedScene" id=8]
+[ext_resource path="res://dialogue/Dialogue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=8]
 [ext_resource path="res://Interface/shaders/transition/transition_effect.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Main/CutSceneManager.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Main/PositionsForCustomers.gd" type="Script" id=11]
+[ext_resource path="res://Main/PositionsForCustomers.gd" type="Script" id=10]
+[ext_resource path="res://audio/Buy Something!.ogg" type="AudioStream" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812, 636.516, 566.223, 1429.54, 561.781, 1427.78, 304.791, 1265.84, 304.791, 541.572, 578.763, 670.553, 566.223, 670.553, 736.406, 550.529, 1150.22, 684.884, 1150.22, 679.51, 838.516, 1442.65, 743.572, 1329.79, 833.142, 1455.19, 1143.06, 1336.96, 1144.85 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2 ), PoolIntArray( 5, 4, 2, 6 ), PoolIntArray( 7, 8, 9, 10 ), PoolIntArray( 11, 10, 9, 12 ), PoolIntArray( 12, 9, 13, 14 ), PoolIntArray( 14, 13, 15, 16 ) ]
-outlines = [ PoolVector2Array( 1265.84, 304.791, 1427.78, 304.791, 1429.54, 561.781, 636.516, 566.223, 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812 ), PoolVector2Array( 541.572, 578.763, 550.529, 1150.22, 684.884, 1150.22, 679.51, 838.516, 1329.79, 833.142, 1336.96, 1144.85, 1455.19, 1143.06, 1442.65, 743.572, 670.553, 736.406, 670.553, 566.223 ) ]
+vertices = PoolVector2Array( 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812, 636.516, 566.223, 678.542, 566.203, 1429.54, 561.781, 1427.78, 304.791, 1265.84, 304.791, 541.572, 702.37, 672.345, 696.995, 670.553, 736.406, 551.121, 1238.5, 673.578, 1238.5, 679.51, 838.516, 1442.65, 743.572, 1329.79, 833.142, 1455.19, 1143.06, 1336.96, 1144.85 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ), PoolIntArray( 6, 5, 2, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 12, 11, 10, 13 ), PoolIntArray( 13, 10, 14, 15 ), PoolIntArray( 15, 14, 16, 17 ) ]
+outlines = [ PoolVector2Array( 1265.84, 304.791, 1427.78, 304.791, 1429.54, 561.781, 678.542, 566.203, 636.516, 566.223, 542.394, 567.062, 540.633, 477.291, 1262.32, 480.812 ), PoolVector2Array( 541.572, 702.37, 551.121, 1238.5, 673.578, 1238.5, 679.51, 838.516, 1329.79, 833.142, 1336.96, 1144.85, 1455.19, 1143.06, 1442.65, 743.572, 670.553, 736.406, 672.345, 696.995 ) ]
 
 [node name="Game" type="Node"]
 
@@ -31,26 +31,6 @@ editor/display_folded = true
 position = Vector2( 1365.85, 627.724 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 
-[node name="Sprite" parent="WorldController/Register" index="2"]
-
-visible = false
-
-[node name="Sprite" parent="WorldController/PickupArea" index="2"]
-
-visible = false
-
-[node name="Sprite" parent="WorldController/BaristaArea/Coffee" index="2"]
-
-visible = false
-
-[node name="Sprite" parent="WorldController/BaristaArea/Milk" index="2"]
-
-visible = false
-
-[node name="Sprite" parent="WorldController/BaristaArea/Sugar" index="2"]
-
-visible = false
-
 [node name="Navigation2D" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
@@ -64,30 +44,31 @@ enabled = true
 "player",
 ] instance=ExtResource( 5 )]
 
+pause_mode = 2
 editor/display_folded = true
 position = Vector2( 1350.82, 361.23 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Pause", "Transform" ]
 
-[node name="Eyes" parent="Player/SpriteBody" index="0"]
+[node name="Eyes" parent="Player/SpriteBody" index="1"]
 
-frame = 3
+frame = 9
 
 [node name="GUI" parent="." index="4" instance=ExtResource( 6 )]
 
 mouse_filter = 2
-theme = ExtResource( 7 )
 _sections_unfolded = [ "Mouse", "Theme" ]
 
 [node name="CustPosition" type="Position2D" parent="." index="5"]
 
 position = Vector2( 1385.97, 1039.22 )
 
-[node name="Dialogue" parent="." index="6" instance=ExtResource( 8 )]
+[node name="Dialogue" parent="." index="6" instance=ExtResource( 7 )]
 
 visible = false
 
 [node name="Button" type="Button" parent="." index="7"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -103,30 +84,23 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 8 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
 flat = false
 align = 1
+_sections_unfolded = [ "Theme" ]
 
 [node name="transition_effect" parent="." index="8" instance=ExtResource( 9 )]
 
 visible = false
 
-[node name="CutSceneManager" parent="." index="9" instance=ExtResource( 10 )]
+[node name="PositionsForCustomers" type="Node" parent="." index="9"]
 
-[node name="Start" parent="CutSceneManager" index="0"]
-
-position = Vector2( 598.329, 528.464 )
-
-[node name="End" parent="CutSceneManager" index="1"]
-
-position = Vector2( 1270.11, 519.507 )
-
-[node name="PositionsForCustomers" type="Node" parent="." index="10"]
-
-script = ExtResource( 11 )
+editor/display_folded = true
+script = ExtResource( 10 )
 
 [node name="Lineup" type="Node" parent="PositionsForCustomers" index="0"]
 
@@ -164,10 +138,28 @@ position = Vector2( 623.409, 892.12 )
 
 position = Vector2( 822.255, 786.427 )
 
+[node name="Exit" type="Node" parent="PositionsForCustomers" index="2"]
+
+[node name="Exit" type="Position2D" parent="PositionsForCustomers/Exit" index="0"]
+
+position = Vector2( 611.628, 1199.32 )
+scale = Vector2( 0.934442, 0.851184 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="10"]
+
+pause_mode = 2
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Pause" ]
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 
 [editable path="WorldController"]
 [editable path="Navigation2D"]
 [editable path="Player"]
-[editable path="CutSceneManager"]

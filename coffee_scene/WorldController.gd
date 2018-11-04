@@ -6,10 +6,11 @@ extends Node
 #var sugar_button
 #var barista_area
 #var register
-
+const capacity = 4
 var selectables = [] 
 
 var orders_list = []
+var taken_customers = []
 
 signal button_selected
 
@@ -38,7 +39,15 @@ func getSelectableButtons():
 func takeCustomer(customer):
 	customer.createOrder()
 	orders_list.append(customer.getOrder())
+	taken_customers.append(customer)
 	return customer.getOrder()
+
+func removeCustomer():
+	return taken_customers.pop_front()
+func gettakenCustomersSz():
+	return taken_customers.size()
+func canTakeMoreCustomers():
+	return taken_customers.size() < capacity
 
 func addToOrderList(order):
 	orders_list.append(order)

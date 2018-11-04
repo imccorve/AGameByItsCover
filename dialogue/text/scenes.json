@@ -1,41 +1,124 @@
 {
     "created_at": "2018-10-20T21:04:16Z",
     "data": {
-        "editorData": {
-            "textSize": 0,
-            "authorName": "Anonymous",
-            "playPoint": "imJustGoingToGet",
-            "libraryVisible": false
-        },
-        "optionMirroring": true,
         "initial": "ohGodPmIsAlmostH",
-        "allowCheckpoints": false,
         "stitches": {
             "sigh": {
-                "content": ["Sigh.", {
+                "content": ["All right, Blue. Everything's is going to be okay. Just remember what your Boss taught you.", {
                     "divert": "imJustGoingToGet"
                 }]
             },
             "ohGodPmIsAlmostH": {
-                "content": ["Oh god, 12pm is almost here. Ugh, I want to die.", {
+                "content": ["Oh no, it's almost midnight,", {
                     "divert": "knockKnockKnock"
                 }, {
                     "pageNum": 1
                 }]
             },
             "imJustGoingToGet": {
-                "content": ["I'm just going to get out there, and just try my best.",
-                    {"isEnd": 1
+                "content": ["Just get out there, and try your best!",
+                    {"divert": "useYourMouseToTa"
                 }]
             },
             "knockKnockKnock": {
                 "content": ["*knock, knock, knock*", {
                     "divert": "sigh"
                 }]
+            },
+            "thenProceedToMak": {
+                "content": ["Then, proceed to make the customer's drink by clicking on choosing the coffee beans by clicking on the device to the right.", {
+                    "divert": "onceTheBeansAreC"
+                }]
+            },
+            "useYourMouseToTa": {
+                "content": ["Use your mouse to take a customer's order by clicking on the register.", {
+                    "divert": "thenProceedToMak"
+                }, {
+                    "pageNum": 1
+                }]
+            },
+            "thenChooseTheNum": {
+                "content": ["Then choose the number of sugar cubes before clicking in the area above the 'Pick Up Here' sign to deliver the customer's tasty new cup of joe. "]
+            },
+            "onceTheBeansAreC": {
+                "content": ["Once the beans are chosen choose the milk by clicking on the milk can in the middle. A latte mini game will play.,", {
+                    "divert": "thenChooseTheNum"
+                }]
             }
         }
     },
-    "updated_at": "2018-10-20T21:06:25Z",
-    "url_key": "c66d",
-    "title": "Scene_Introduction"
+    "instructions": {
+        "initial": "useYourMouseToTa",
+        "stitches": {
+            "thenProceedToMak": {
+                "content": ["Then, proceed to make the customer's drink by clicking on choosing the coffee beans by clicking on the device to the right.", {
+                    "divert": "onceTheBeansAreC"
+                }]
+            },
+            "useYourMouseToTa": {
+                "content": ["Use your mouse to take a customer's order by clicking on the register.", {
+                    "divert": "thenProceedToMak"
+                }, {
+                    "pageNum": 1
+                }]
+            },
+            "thenChooseTheNum": {
+                "content": ["Then choose the number of sugar cubes before clicking in the area above the 'Pick Up Here' sign to deliver the customer's tasty new cup of joe. "]
+            },
+            "onceTheBeansAreC": {
+                "content": ["Once the beans are chosen choose the milk by clicking on the milk can in the middle. A latte mini game will play.,", {
+                    "divert": "thenChooseTheNum"
+                }]
+            }
+        }
+    },
+    "Phil": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["Hey, how's it going. Could I get ... The Expressionist? Thanks,",
+                {}]
+            }
+        }
+    },
+    "Amanda": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["Have you seen the weather outside? It's dreadful. Oh! Um...could I get a...Americano in London.", {}]
+            }
+        }
+    },
+    "Beth": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["The Mocha Returns. Extra frothy", {}]
+            }
+        }
+    },
+    "Rico": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["Hey, how's it going. Could I get ... Lattexas chainsaw Massacre? Thanks,", {}]
+            }
+        }
+    },
+    "Teyona": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["Just The Special for me. Thanks,", {}]
+            }
+        }
+    },
+    "Departure": {
+        "initial": "ohGodPmIsAlmostH",
+        "stitches": {
+            "ohGodPmIsAlmostH": {
+                "content": ["Ah, yes! Thank you!", {}]
+            }
+        }
+    }
 }

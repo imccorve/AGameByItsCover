@@ -12,6 +12,8 @@ var curr_popup
 signal done_selecting
 
 var coffee_options = ['blue Mountain', 'kiliminjaro', 'dark', 'mocha']
+var expresso_num_options = ["one shot", "double shot"]
+
 var milk_options = ['none', 'some', 'a little', 'whole']
 var sugar_options = ['3 spoonfuls', 'two spoonfuls', 'none']
 
@@ -26,6 +28,7 @@ func updateScore(score):
 	
 func setText(text):
 	print(text)
+
 
 func addTasks(task):
 #
@@ -74,6 +77,23 @@ func _popupMenuChoice(ID):
 	emit_signal("done_selecting", popup_options.get_item_text(ID), curr_popup)
 	popup_options.hide()
 
+func setIngredients(ingredients):
+	var vbox = get_node("TopGUI/VBoxColumn2")
+	for child in vbox.get_children():
+		if child.is_in_group("ingredient_label"):
+			print(ingredients)
+			if ingredients[child.name] == null:
+				child.text = "Nothing"
+			else:
+				child.text = ingredients[child.name]
+	pass
+
+func clearIngredients():
+	var vbox = get_node("TopGUI/VBoxColumn2")
+	for child in vbox.get_children():
+		if child.is_in_group("ingredient_label"):
+			child.text = "Nothing"
+	pass
+
 func _process(delta):
-	
 	pass
